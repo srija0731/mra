@@ -1,3 +1,5 @@
+
+
 let reminders = [];
 
 function addReminder() {
@@ -32,10 +34,9 @@ function setReminder(medicine, time) {
     const now = new Date();
     const reminderTime = new Date();
 
+    // FIX: Convert strings to numbers using parseInt()
     const [hours, minutes] = time.split(":");
-    reminderTime.setHours(hours);
-    reminderTime.setMinutes(minutes);
-    reminderTime.setSeconds(0);
+    reminderTime.setHours(parseInt(hours), parseInt(minutes), 0);
 
     let delay = reminderTime - now;
     if (delay < 0) {
@@ -46,4 +47,3 @@ function setReminder(medicine, time) {
         alert(`Time to take your medicine: ${medicine}`);
     }, delay);
 }
-
