@@ -2,24 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Medical Reminder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An application to set and manage medical reminders effortlessly.">
+    <title>Medical Reminder - Keep Track of Your Medications</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
-        <h1>💊 Medical Reminder</h1>
+        <header>
+            <h1>💊 Medical Reminder</h1>
+            <p class="subtitle">Set reminders for your medications with ease. Enter the name and time to get started!</p>
+        </header>
 
-        <label>Medicine Name</label>
-        <input type="text" id="medicine" placeholder="Enter medicine name">
+        <form id="reminderForm">
+            <div class="form-group">
+                <label for="medicine">Medicine Name</label>
+                <input 
+                    type="text" 
+                    id="medicine" 
+                    placeholder="Enter medicine name"
+                    required
+                    aria-label="Medicine Name">
+            </div>
 
-        <label>Reminder Time</label>
-        <input type="time" id="time">
+            <div class="form-group">
+                <label for="time">Reminder Time</label>
+                <input 
+                    type="time" 
+                    id="time"
+                    required
+                    aria-label="Reminder Time">
+            </div>
 
-        <button onclick="addReminder()">Add Reminder</button>
+            <button type="button" id="addReminderBtn" class="btn-primary">Add Reminder</button>
+        </form>
 
-        <h2>Reminders</h2>
-        <ul id="reminderList"></ul>
+        <section class="reminders-section">
+            <h2>Reminders</h2>
+            <ul id="reminderList" role="list"></ul>
+            <p id="emptyState" class="empty-state">No reminders yet. Add one to get started!</p>
+        </section>
     </div>
 
     <script src="script.js"></script>
